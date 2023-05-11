@@ -1,0 +1,146 @@
+import 'package:flutter/material.dart';
+
+void main () {
+  runApp (MyApp());
+}
+
+class  MyApp extends StatelessWidget {
+  @override
+    Widget build(BuildContext context) {
+      return MaterialApp(
+        title: 'Biodata Dan Jurusan',
+        home: HomePage(),
+          routes: {
+            '/Biodata': (context) => BiodataPage(),
+            '/Jurusan': (context) => JurusanPage(),
+        },
+      );
+    }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+    Widget build(BuildContext context) {
+      return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 228, 84, 39),
+          title: Text('Biodata dan Jurusan'),
+          ),
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text (
+                  'Silahkan Dilihat',
+                  style: TextStyle (fontSize: 24.0),
+                  ),
+                  SizedBox(height: 16.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/Biodata');
+                      },
+                  child: Text('Lihat Biodata'),
+                  ),
+                  SizedBox(height: 16.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/Jurusan');
+                    },
+                  child: Text('Lihat Jurusan'),
+                ),
+              ],
+            ),
+          ),
+        );
+    }
+}
+
+class BiodataPage extends StatelessWidget {
+  @override
+    Widget build(BuildContext context) {
+      return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 228, 84, 39),
+          title: Text('Biodata'),
+        ),
+          body: Container(
+            color: Color.fromARGB(172, 44, 17, 9),
+              child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    radius : 80,
+                    backgroundImage: AssetImage('') //kalau mau menambahkan foto profile
+                  ),
+                  Text(
+                    'Nama : Aubin Tarikh Yaseen',
+                     style: TextStyle(fontSize: 24.0, color: Color.fromARGB(255,255,255,255)),
+                  ),
+                  SizedBox(height: 16.0),
+                  Text(
+                    'Umur : 20 Tahun',
+                     style: TextStyle(fontSize: 24.0, color: Color.fromARGB(255,255,255,255)),
+                  ),
+                  SizedBox(height:16.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                  },
+                  child: Text('Kembali'),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      } 
+}
+
+class JurusanPage extends StatelessWidget {
+   @override
+    Widget build(BuildContext context) {
+      return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 228, 84, 39),
+          title: Text('Perkuliahan'),
+        ),
+          body: Container(
+            color: Color.fromARGB(172, 44, 17, 9),
+              child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Universitas Pakuan Bogor',
+                    style: TextStyle(fontSize: 18.0),
+                  ),
+                    SizedBox(height:12.0),
+                    Text(
+                    'Jurusan Manajemen Informatika',
+                    style: TextStyle(fontSize: 18.0),
+                  ),
+                    SizedBox(height:12.0),
+                    Text(
+                    'NPM : 085021012',
+                    style: TextStyle(fontSize: 18.0),
+                  ),
+                    SizedBox(height:12.0),
+                    Text(
+                    'Mahasiswa Semester 4',
+                    style: TextStyle(fontSize: 18.0),
+                  ),
+                    SizedBox(height:12.0),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        },
+                      child: Text('Kembali'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          }
+        }
